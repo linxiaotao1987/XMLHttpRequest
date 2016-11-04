@@ -3,7 +3,7 @@
 
 引入js后即可使用，他是一个全局变量
 
-<script>
+```
 /*用法*/
 linAjax({
     type:'post',
@@ -18,4 +18,4 @@ linAjax({
     }
 });
 /*end*/
-</script>
+```
