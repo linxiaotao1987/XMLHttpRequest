@@ -1,6 +1,11 @@
 /*sendajax*/
 window.linAjax = function(object){
-    var xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest(),
+		type = object.type.toLowerCase();
+
+	if(type == 'post'){
+		object.data = setPostData(object.data);
+	}
 
     xhr.onerror = object.error;
 
@@ -21,6 +26,16 @@ window.linAjax = function(object){
 
     xhr.open(object.type,object.url);
     xhr.send(object.data);
+    
+    function setPostData(obj){ // 转成post需要的字符串.
+		var str = "";
+
+		for(var prop in obj){
+			str += prop + "=" + obj[prop] + "&"
+		}
+
+		return str;
+	}
 };
 /*end*/
 
