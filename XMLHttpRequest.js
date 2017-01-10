@@ -25,6 +25,14 @@ window.linAjax = function(object){
     };
 
     xhr.open(object.type,object.url);
+	
+    /*检查是否指定了头部内容*/
+    if(object.setRequestHeader !== undefined){
+        for(var item in object.setRequestHeader) {
+            xhr.setRequestHeader(item,object.setRequestHeader[item]);
+        }
+    }
+	
     xhr.send(object.data);
     
     function setPostData(obj){ // 转成post需要的字符串.
@@ -50,6 +58,7 @@ linAjax({
     },
     error:function(data){
         console.log('hehe');
-    }
+    },
+    setRequestHeader:{'name':'value','name':'value'}
 });
 /*end*/
