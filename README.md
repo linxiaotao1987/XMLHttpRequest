@@ -15,7 +15,8 @@ linAjax({
     },
     error:function(data){
         console.log('hehe');
-    }
+    },
+    setRequestHeader:{'name':'value','name':'value'}
 });
 /*end*/
 ```
